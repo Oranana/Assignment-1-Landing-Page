@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Nana Tour</title>
+        <link rel="shortcut icon" type="image/jpg" href="./coconut-tree-1642994-1394081.png"/>
+
+        <!-- Link to Bootstrap CSS file -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Link to Bootstrap JavaScript file -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Link to Bootstrap Icons file -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
+    </head>
+    <body>
+        <!-- Reference to SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="bootstrap" viewBox="0 0 118 94">
+              <title>Bootstrap</title>
+
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+            </symbol>
+            <symbol id="home" viewBox="0 0 16 16">
+              <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+            </symbol>
+            <symbol id="speedometer2" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+              <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+            </symbol>
+            <symbol id="table" viewBox="0 0 16 16">
+              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+            </symbol>
+            <symbol id="people-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </symbol>
+            <symbol id="grid" viewBox="0 0 16 16">
+              <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+            </symbol>
+            <symbol id="home" viewBox="0 0 16 16">
+              <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+            </symbol>
+            <symbol id="speedometer2" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+              <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+            </symbol>
+            <symbol id="table" viewBox="0 0 16 16">
+              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+            </symbol>
+            <symbol id="people-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </symbol>
+            <symbol id="grid" viewBox="0 0 16 16">
+              <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+            </symbol>
+            <symbol id="collection" viewBox="0 0 16 16">
+              <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+            </symbol>
+            <symbol id="calendar3" viewBox="0 0 16 16">
+              <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+              <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </symbol>
+            <symbol id="chat-quote-fill" viewBox="0 0 16 16">
+              <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM7.194 6.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 6C4.776 6 4 6.746 4 7.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 9.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 6c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
+            </symbol>
+            <symbol id="cpu-fill" viewBox="0 0 16 16">
+              <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+              <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
+            </symbol>
+            <symbol id="gear-fill" viewBox="0 0 16 16">
+              <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+            </symbol>
+            <symbol id="speedometer" viewBox="0 0 16 16">
+              <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+              <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
+            </symbol>
+            <symbol id="toggles2" viewBox="0 0 16 16">
+              <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z"/>
+              <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z"/>
+              <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
+            </symbol>
+            <symbol id="tools" viewBox="0 0 16 16">
+              <path d="M1 0L0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
+            </symbol>
+            <symbol id="chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </symbol>
+            <symbol id="geo-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+            </symbol>
+        </svg>
+     <!-- Header -->
+     <header>
+
+        <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+        <div class="overlay"></div>
+
+        <!-- The HTML5 video element that will create the background video on the header -->
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="./GH014451_1546174218200_high.MP4">
+        </video>
+
+        <!-- The header content -->
+        <div class="container h-100">
+          <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+              <h1 class="display-3">SAMUI ISLAND</h1>
+              <p>Let Nana takes you to paradise</p>
+              <p class="lead mb-0">Most reliable tourism company in Thailand</p>
+              <!-- BUTTON -->
+              <br>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button class="btn btn_get btn_get_two btn-lg px-4 me-sm-3 fw-bold" type="submit">Book now</button>
+                <button type="button" class="btn btn-outline-light btn-lg px-4">Reviews</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+<br>
+<br>
+<br>
+      <!-- FEATURE -->
+      <section class="home-section home-section-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                  <center>
+                    <div class="section-heading"><h2>Why Nana Services</h2><p>We offer most competitive rates and for unique and secret places you never know it exists.</p></div>		<div class="home-features">
+                        <div class="row">
+                                                                <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-1.png" alt="icon">
+                                                    </figure>
+                                                <h3>Unique Destinations</h3><p>Looking for a unique vacation destination? Then maybe a trip to one of the 10 most unique tourist destinations might.</p>										</div>
+                                        </div>
+                                                                            <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-2.png" alt="icon">
+                                                    </figure>
+                                                <h3>Worth of Money</h3><p>There is not a better way to spend money, than spending money on travel.
+    This is what we say, others and science.</p>										</div>
+                                        </div>
+                                                                            <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-3.png" alt="icon">
+                                                    </figure>
+                                                <h3>Wonderful Places</h3><p>We do our best to have you a wonderful experience by taking you to the wonderful and amazing places around the island.</p>										</div>
+                                        </div>
+                                                                            <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-4.png" alt="icon">
+                                                    </figure>
+                                                <h3>Quick Booking</h3><p>Booking is quick as clicking a few clicks. We take care of all transportation and accommodations during your journey.</p>										</div>
+                                        </div>
+                                                                            <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-5.png" alt="icon">
+                                                    </figure>
+                                                <h3>Backup Team</h3><p>We have staff to assist in all stages of your holiday, from travel advise &amp; best prices to ground handling &amp; support during your holiday.</p>										</div>
+                                        </div>
+                                                                            <div class="col-sm-6 col-md-4">
+                                            <div class="home-feature">
+
+                                                    <figure>
+                                                        <img src="https://dubaitourservices.com/wp-content/uploads/2020/09/feature-6.png" alt="icon">
+                                                    </figure>
+                                                <h3>Exciting Travel</h3><p>We have a wide range of expertise and knowledge in our services. So we can provide you an exciting travel experience.</p>										</div>
+                                        </div>
+                                                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<br>
+<br>
+<br>
+    <!--Cards for Trust Indicators-->
+    <center>
+    <section class="elementor-section elementor-top-section elementor-element elementor-element-6f6e963 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6f6e963" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-64ecb62" data-id="64ecb62" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+            <div class="elementor-widget-wrap">
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-52202fb elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="52202fb" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-row">
+    <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e987bb2" data-id="e987bb2" data-element_type="column">
+<div class="elementor-column-wrap elementor-element-populated">
+            <div class="elementor-widget-wrap">
+        <div class="elementor-element elementor-element-c664708 elementor-widget elementor-widget-image" data-id="c664708" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                <!--<div class="elementor-image">-->
+                                    <!--<img src="https://travelerssaga.com/wp-content/uploads/2020/11/footer-trip-logo.png" class="attachment-full size-full" alt="" loading="lazy" srcset="https://travelerssaga.com/wp-content/uploads/2020/11/footer-trip-logo.png 850w, https://travelerssaga.com/wp-content/uploads/2020/11/footer-trip-logo-300x35.png 300w, https://travelerssaga.com/wp-content/uploads/2020/11/footer-trip-logo-768x89.png 768w" sizes="(max-width: 850px) 100vw, 850px" width="850" height="99">														</div>-->
+
+<div class="d-flex justify-content-around">
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">"It was the sweetest honeymoon you can ever dream of."</p>
+        </div>
+        <div class="card-subtitle">Sarah Netherland</div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">"Definitely a 5! I'd give them more stars if I could."</p>
+        </div>
+        <div class="card-subtitle">Artyom Russia</div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">"Best birthday ever, thank you Nana! Highly recommended."</p>
+        </div>
+        <div class="card-subtitle">Tim America</div>
+    </div>
+
+</div>
+
+
+
+</div>
+        </div>
+    </div>
+</div>
+                </div>
+    </div>
+</section>
+        </div>
+    </div>
+</div>
+                </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                        <p>Don’t miss any updates of our new activities and experiences.</p>
+                        <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                            <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                            <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                            <p class="mchimp-errmessage" style="display: none;"></p>
+                            <p class="mchimp-sucmessage" style="display: none;"></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Services</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Travel Department</a></li>
+                            <li><a href="#">Super Yacht Handling</a></li>
+                            <li><a href="#">VIP Fast Track Service </a></li>
+                            <li><a href="#">Airport Transportation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Help</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Term &amp; conditions</a></li>
+                            <li><a href="#">Reporting</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Support Policy</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Contact Us</h3>
+                        <ul class="list-unstyled f_list">
+                          <li><a href="#">Address</a></li>
+                          <li><a href="#">Phone Directory</a></li>
+                          <li><a href="#">Email</a></li>
+                      </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="footer_bg">-->
+            <!--<div class="footer_bg_one"></div>-->
+            <!--<div class="footer_bg_two"></div>-->
+        <!--</div>-->
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-7">
+                    <p class="mb-0 f_400">© NanaTour Inc.. 2019 All rights reserved.</p>
+                </div>
+                <div class="col-lg-6 col-sm-5 text-right">
+                    <p>Made with <i class="icon_heart"></i> in <a href="#">NanaTour</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<style>
+  header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  header video {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  header .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .card {
+      border: none;
+  }
+
+  .card-subtitle {
+      color: #6a7695;
+  }
+
+
+<!-- foooooooter -->
+
+  body {
+background: #fbfbfd;
+}
+
+.new_footer_area {
+background: #fbfbfd;
+}
+
+
+.new_footer_top {
+padding: 120px 0px 270px;
+position: relative;
+  overflow-x: hidden;
+}
+.new_footer_area .footer_bottom {
+padding-top: 5px;
+padding-bottom: 50px;
+}
+.footer_bottom {
+font-size: 14px;
+font-weight: 300;
+line-height: 20px;
+color: #7f88a6;
+padding: 27px 0px;
+}
+.new_footer_top .company_widget p {
+font-size: 16px;
+font-weight: 300;
+line-height: 28px;
+color: #6a7695;
+margin-bottom: 20px;
+}
+.new_footer_top .company_widget .f_subscribe_two .btn_get {
+border-width: 1px;
+margin-top: 20px;
+}
+.btn_get_two:hover {
+background: transparent;
+color: #5e2ced;
+}
+.btn_get:hover {
+color: #fff;
+background: rgba(0, 204, 255, 0.993);
+border-color: rgba(0, 204, 255, 0.993);
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
+text-decoration: none;
+outline: none;
+}
+
+
+
+.new_footer_top .f_widget.about-widget .f_list li a:hover {
+color: rgba(0, 204, 255, 0.993);
+}
+.new_footer_top .f_widget.about-widget .f_list li {
+margin-bottom: 11px;
+}
+.f_widget.about-widget .f_list li:last-child {
+margin-bottom: 0px;
+}
+.f_widget.about-widget .f_list li {
+margin-bottom: 15px;
+}
+.f_widget.about-widget .f_list {
+margin-bottom: 0px;
+}
+.new_footer_top .f_social_icon a {
+width: 44px;
+height: 44px;
+line-height: 43px;
+background: transparent;
+border: 1px solid #e2e2eb;
+font-size: 24px;
+}
+.f_social_icon a {
+width: 46px;
+height: 46px;
+border-radius: 50%;
+font-size: 14px;
+line-height: 45px;
+color: #858da8;
+display: inline-block;
+background: #ebeef5;
+text-align: center;
+-webkit-transition: all 0.2s linear;
+-o-transition: all 0.2s linear;
+transition: all 0.2s linear;
+}
+.ti-facebook:before {
+content: "\e741";
+}
+.ti-twitter-alt:before {
+content: "\e74b";
+}
+.ti-vimeo-alt:before {
+content: "\e74a";
+}
+.ti-pinterest:before {
+content: "\e731";
+}
+
+.btn_get_two {
+-webkit-box-shadow: none;
+box-shadow: none;
+background: rgba(0, 204, 255, 0.993);
+border-color: rgba(0, 204, 255, 0.993);
+color: #fff;
+}
+
+.btn_get_two:hover {
+background: transparent;
+color: rgba(0, 204, 255, 0.993);
+}
+
+.new_footer_top .f_social_icon a:hover {
+background: #5e2ced;
+border-color: #5e2ced;
+color:white;
+}
+.new_footer_top .f_social_icon a + a {
+margin-left: 4px;
+}
+.new_footer_top .f-title {
+margin-bottom: 30px;
+color: #263b5e;
+}
+.f_600 {
+font-weight: 600;
+}
+.f_size_18 {
+font-size: 18px;
+}
+h1, h2, h4, h5, h6 {
+color: white;
+}
+h2, h3{
+color: rgba(0, 204, 255, 0.993);
+}
+
+
+.new_footer_top .f_widget.about-widget .f_list li a {
+color: #6a7695;
+}
+
+/*.new_footer_top .footer_bg .footer_bg_one {*/
+/*background: url("https://1.bp.blogspot.com/-mvKUJFGEc-k/XclCOUSvCnI/AAAAAAAAUAE/jnBSf6Fe5_8tjjlKrunLBXwceSNvPcp3wCLcBGAsYHQ/s1600/volks.gif") no-repeat center center;*/
+/*width: 330px;*/
+/*height: 105px;*/
+/*background-size:100%;*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*left: 30%;*/
+/*-webkit-animation: myfirst 22s linear infinite;*/
+/*animation: myfirst 22s linear infinite;*/
+/*}*/
+
+/*.new_footer_top .footer_bg .footer_bg_two {*/
+/*background: url("https://1.bp.blogspot.com/-hjgfxUW1o1g/Xck--XOdlxI/AAAAAAAAT_4/JWYFJl83usgRFMvRfoKkSDGd--_Sv04UQCLcBGAsYHQ/s1600/cyclist.gif") no-repeat center center;*/
+/*width: 88px;*/
+/*height: 100px;*/
+/*background-size:100%;*/
+/*bottom: 0;*/
+/*left: 38%;*/
+/*position: absolute;*/
+/*-webkit-animation: myfirst 30s linear infinite;*/
+/*animation: myfirst 30s linear infinite;*/
+/*}*/
+
+@-moz-keyframes myfirst {
+0% {
+left: -25%;
+}
+100% {
+left: 100%;
+}
+}
+
+@-webkit-keyframes myfirst {
+0% {
+left: -25%;
+}
+100% {
+left: 100%;
+}
+}
+
+@keyframes myfirst {
+0% {
+left: -25%;
+}
+100% {
+left: 100%;
+}
+}
+
+  /* Media Query for devices withi coarse pointers and no hover functionality */
+
+  /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
+
+  @media (pointer: coarse) and (hover: none) {
+    header {
+      background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    }
+
+    header video {
+      display: none;
+    }
+  }
+</style>
